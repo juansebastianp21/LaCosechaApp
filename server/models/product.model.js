@@ -9,5 +9,7 @@ let ProductSchema = new Schema({
 });
 
 
-//Exportar el modelo
+
+
+//Exportar los modelos
 module.exports = mongoose.model('Product', ProductSchema);
