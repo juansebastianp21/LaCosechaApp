@@ -114,6 +114,7 @@ import flatListData from '../../data/flatListData';
           height:330
         },
         TextModal:{
+            color: '#8d6e63',
             fontSize: 16,
             fontWeight: 'bold',
             textAlign: 'center',
@@ -138,7 +139,8 @@ import flatListData from '../../data/flatListData';
             marginRight: 70,
             height: 40,
             borderRadius: 6,
-            backgroundColor: 'mediumseagreen'
+            backgroundColor: '#d50000',
+            marginTop: 5
         }
 
   });

@@ -92,7 +92,7 @@ class ListItem extends Component {
                         <View style={{
                         flex: 1,
                         flexDirection: 'row',
-                        backgroundColor: 'mediumseagreen',
+                        backgroundColor: '#ffffff',
                     }}>
                     <Image
                         source={{uri : this.props.item.image_url}}
@@ -107,8 +107,8 @@ class ListItem extends Component {
                     
                     </View>
                     <View style={{
-                        height: 1,
-                        backgroundColor:'white'
+                        height: 2,
+                        backgroundColor:'#d50000'
                     }}>
 
                     </View>
@@ -170,10 +170,13 @@ export default class List extends Component{
         
         return (
           <View style={{flex: 1}}>
-            <View style={{backgroundColor: 'tomato', height: 64, flexDirection: 'row', justifyContent:'flex-end', alignItems:'center'}}>
-                <TouchableHighlight style={{marginRight: 10}} underlayColor='tomato' onPress={this._onPressAdd}>
-                    <Image style={{width: 35, height: 35}} source={require('../../icons/mas.png')}/>
+            <View style={{backgroundColor: '#8d6e63', height: 64, justifyContent: 'space-between', flexDirection: 'row', alignItems:'center'}}>
+                <Text style={{paddingLeft:10, color: 'white', fontSize: 20,}}>La Cosecha Parrillada</Text>
+                <TouchableHighlight style={{marginRight: 10}} underlayColor='#8d6e63' onPress={this._onPressAdd}>
+                    <Image style={{width: 35, height: 35}} source={require('../../icons/redAddIcon.png')}/>
                 </TouchableHighlight>
+                
+                
             </View>
 
             <FlatList
@@ -210,7 +213,7 @@ export default class List extends Component{
 
   const styles = StyleSheet.create({
     ItemText: {
-        color: 'white',
+        color: '#8d6e63',
         padding: 5,
         fontSize: 16
     },
