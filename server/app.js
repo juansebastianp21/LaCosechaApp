@@ -3,6 +3,7 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
+var path = require('path');
 
 //importacion de las rutas para los productos
 const product = require('./routes/product.route'); 
@@ -11,10 +12,7 @@ const user =  require('./routes/user.routes');
 const app = express();
 
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
-app.use('/products', product);
-app.use('/user', user);
+
 
 
 
@@ -27,6 +25,15 @@ mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use('/products', product);
+app.use('/user', user);
+
 
 
 
