@@ -7,15 +7,31 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, FlatList, Image} from 'react-native';
-import ProductList from './src/components/Product-list'
+import {Platform, StyleSheet, Text, View, } from 'react-native';
+import {StackNavigator} from 'react-navigation'
+import Login from './src/components/login'
+import List from './src/components/List'
+
+
+const Application = StackNavigator({
+  LoginScreen: {
+      screen: Login,
+      navigationOptions: {
+        header: false
+    }
+  },
+  ListScreen: {
+      screen: List,
+      navigationOptions: {
+          header: false
+      }
+  }
+})
 
 export default class App extends Component{
-
-
   render() {
       return (
-        <ProductList/>
+        <Application/>
       );
     
     

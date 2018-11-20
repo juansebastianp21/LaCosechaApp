@@ -51,13 +51,13 @@ exports.user_login = function (req, res, next) {
     .then(user =>{
         if (user.length < 1){
             return res.status(401).json({
-                message: 'Login failed'
+                message: 'Email o contraseña incorrecta'
             });
         }
         bcrypt.compare(req.body.password,user[0].password, (err, result) =>{
             if(err){
                 return res.status(401).json({
-                    message: 'Login failed'
+                    message: 'Login failed bad pass'
                 });
             }
             if (result) {
@@ -72,11 +72,13 @@ exports.user_login = function (req, res, next) {
                 );
                 return res.status(200).json({
                     message: 'Autenticacion exitosa',
+                    flag: 1,
                     token: token
                 });
             }
             return res.status(401).json({
-                message: 'Login failed'
+                message: 'Login failed',
+                flag: 0,
             });
         });
     })
