@@ -51,17 +51,26 @@ import flatListData from '../../data/flatListData';
           onChangeText={(text) => this.setState({newFoodName: text})}
           placeholder="Nombre"
           value={this.state.newFoodName}/>
+
           <TextInput 
           style={styles.TextInputModal} 
           onChangeText={(text) => this.setState({newFoodPrice: parseInt(text)})}
           placeholder="Price"
           keyboardType='numeric'
           value={this.state.newFoodPrice}/>
+
           <TextInput 
           style={styles.TextInputModal} 
           onChangeText={(text) => this.setState({newFoodDescription: text})}
           placeholder="Description"
           value={this.state.newFoodDescription}/>
+
+
+           <TextInput 
+          style={styles.TextInputModal} 
+          onChangeText={(text) => this.setState({newFoodUrl: text})}
+          placeholder="Image ULR"
+          value={this.state.newFoodUrl}/>
 
           <Button 
           style={styles.ButtonModal}
@@ -76,7 +85,7 @@ import flatListData from '../../data/flatListData';
                   name: this.state.newFoodName,
                   price: this.state.newFoodPrice,
                   description: this.state.newFoodDescription,
-                  image_url: 'https://cdn.colombia.com/sdi/2011/07/22/ajiaco-496022.jpg'
+                  image_url: this.state.newFoodUrl
               };
               //flatListData.push(newFood);
               //this.props.parentFlatList.refreshList(newKey);
@@ -111,21 +120,21 @@ import flatListData from '../../data/flatListData';
           borderRadius: Platform.OS === 'ios' ? 30:0,
           shadowRadius: 10,
           width: screen.width - 80,
-          height:330
+          height:350
         },
         TextModal:{
             color: '#8d6e63',
             fontSize: 16,
             fontWeight: 'bold',
             textAlign: 'center',
-            marginTop: 20,
+            marginTop: 10,
         },
         TextInputModal: {
             height: 40,
             borderBottomColor: 'gray',
             marginLeft: 30,
-            marginRight: 30,
-            marginTop: 20,
+            marginRight: 10,
+            marginTop: 10,
             marginBottom: 10,
             borderBottomWidth: 1
         },

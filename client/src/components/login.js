@@ -1,6 +1,6 @@
 import React from 'react';
 import {Platform, StyleSheet, Text, View, AsyncStorage, Image, TextInput, Button, KeyboardAvoidingView, TouchableOpacity} from 'react-native';
-import LoginForm from './loginForm';
+
 import List from './List';
 //import { LoginScreen, ListScreen} from '../../screenNames'
 
@@ -103,7 +103,7 @@ export default class Login extends React.Component {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#3498db'
+      backgroundColor: '#8d6e63'
     },
     logoContainer: {
         alignItems: 'center',
@@ -111,8 +111,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     logo: {
-        width: 250,
-        height:100
+        width: 300,
+        height:150
     },
     Keycontainer: {
         padding: 20,
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
           paddingHorizontal:10
       },
       buttonContainer: {
-          backgroundColor: '#2980b9',
+          backgroundColor: '#d50000',
           marginBottom: 20,
           paddingVertical: 15
       },

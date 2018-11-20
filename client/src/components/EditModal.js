@@ -24,6 +24,7 @@ import flatListData from '../../data/flatListData';
             FoodName:editingFood.name,
             FoodPrice: editingFood.price.toString(),
             FoodDescription: editingFood.description,
+            FoodUrl:editingFood.image_url,
             flatlistItem: flatlistItem
         });
         this.refs.myModal.open();
@@ -56,7 +57,7 @@ import flatListData from '../../data/flatListData';
           <TextInput 
           style={styles.TextInputModal} 
           onChangeText={(text) => this.setState({FoodPrice: parseInt(text)})}
-          placeholder="Price"
+          placeholder="Precio"
           keyboardType='numeric'
           value={this.state.FoodPrice}/>
 
@@ -64,14 +65,20 @@ import flatListData from '../../data/flatListData';
           <TextInput 
           style={styles.TextInputModal} 
           onChangeText={(text) => this.setState({FoodDescription: text})}
-          placeholder="Description"
+          placeholder="Descripción"
           value={this.state.FoodDescription}/>
+
+          <TextInput 
+          style={styles.TextInputModal} 
+          onChangeText={(text) => this.setState({FoodUrl: text})}
+          placeholder="URL de la imagen"
+          value={this.state.FoodUrl}/>
 
           <Button 
           style={styles.ButtonModal}
           containerStyle={styles.ButtonContainer}
           onPress={()=> {
-              if (this.state.FoodName.length == 0 ||this.state.FoodPrice.length == 0 ||this.state.FoodDescription.length == 0 ){
+              if (this.state.FoodName.length == 0 ||this.state.FoodPrice.length == 0 ||this.state.FoodDescription.length == 0 ||this.state.FoodUrl.length == 0 ){
                   alert("Debe llenar todos los campos");
                   return;
               }
@@ -80,7 +87,9 @@ import flatListData from '../../data/flatListData';
               const body = {
                   name: this.state.FoodName,
                   price: this.state.FoodPrice,
-                  description: this.state.FoodDescription
+                  description: this.state.FoodDescription,
+                  image_url: this.state.FoodUrl
+
               }
 
               fetch(UpdateUrl, {
@@ -94,13 +103,15 @@ import flatListData from '../../data/flatListData';
                 this.state.flatlistItem.refreshFlatListItem({
                     name: this.state.FoodName,
                   price: this.state.FoodPrice,
-                  description: this.state.FoodDescription
+                  description: this.state.FoodDescription,
+                  image_url: this.state.FoodUrl
                 });
                 this.refs.myModal.close();
             }).catch(error => {
                 alert(error);
                 this.refs.myModal.close();
             })
+            this.refs.myModal.close();
               //this.state.flatlistItem.refreshFlatListItem();
               //this.refs.myModal.close();
           }}>
@@ -121,21 +132,21 @@ import flatListData from '../../data/flatListData';
           borderRadius: Platform.OS === 'ios' ? 30:0,
           shadowRadius: 10,
           width: screen.width - 80,
-          height:330
+          height:350
         },
         TextModal:{
             color:'#8d6e63',
             fontSize: 16,
             fontWeight: 'bold',
             textAlign: 'center',
-            marginTop: 20,
+            marginTop: 10,
         },
         TextInputModal: {
             height: 40,
             borderBottomColor: 'gray',
             marginLeft: 30,
-            marginRight: 30,
-            marginTop: 20,
+            marginRight: 10,
+            marginTop: 10,
             marginBottom: 10,
             borderBottomWidth: 1
         },

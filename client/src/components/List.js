@@ -41,7 +41,7 @@ class ListItem extends Component {
                         let selectedItem = this.state.item.name ? this.state.item: this.props.item;
                         this.props.parentFlatList.refs.editModal.showEditModal(selectedItem, this);
                     },
-                    text: 'Edit', type: 'primary'
+                    text: 'Edit', type: 'primary',backgroundColor: '#8d6e63'
                 },
                 {
                     onPress: () => {
@@ -101,7 +101,7 @@ class ListItem extends Component {
                     </Image>
                     <View style={styles.textContainer}>
                         <Text style={styles.ItemText}>{this.state.item.name ? this.state.item.name: this.props.item.name}</Text>
-                        <Text style={styles.ItemText}>{this.state.item.price ? this.state.item.price: this.props.item.price}</Text>
+                        <Text style={styles.ItemText}>Precio: ${this.state.item.price ? this.state.item.price: this.props.item.price}</Text>
                         <Text style={styles.ItemText}>{this.state.item.description ? this.state.item.description: this.props.item.description}</Text>
                     </View>
                     
